@@ -1,0 +1,17 @@
+
+  .jslider .jslider-bg .l,
+  .jslider .jslider-bg .r,
+  .jslider .jslider-bg .v,
+  .jslider .jslider-pointer { background-image: none; overflow: hidden; }
+
+  .jslider .jslider-bg .l i,
+  .jslider .jslider-bg .r i,
+  .jslider .jslider-bg .v i,
+  .jslider .jslider-pointer i { position: absolute; width: 500px; height: 60px; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./stylesheets/jslider.png', sizingMethod='crop'); }
+  
+  .jslider .jslider-bg .l i { left: 0; top: 0; }
+  .jslider .jslider-bg .r i { right: 0; top: 0; }  
+  .jslider .jslider-bg .v i { left: 0; top: -20px; }
+  
+  .jslider .jslider-pointer i { left: 0; top: -40px; }
+  .jslider .jslider-pointer-hover i { left: -20px; top: -40px; }

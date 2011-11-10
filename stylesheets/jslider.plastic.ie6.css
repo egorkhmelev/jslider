@@ -1,0 +1,5 @@
+
+.jslider_plastic .jslider-bg .l i,
+.jslider_plastic .jslider-bg .r i,
+.jslider_plastic .jslider-bg .v i,
+.jslider_plastic .jslider-pointer i { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./stylesheets/jslider.plastic.png', sizingMethod='crop'); }

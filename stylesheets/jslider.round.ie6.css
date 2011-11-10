@@ -1,0 +1,5 @@
+
+.jslider_round .jslider-bg .l i,
+.jslider_round .jslider-bg .r i,
+.jslider_round .jslider-bg .v i,
+.jslider_round .jslider-pointer i { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./stylesheets/jslider.round.png', sizingMethod='crop'); }
