@@ -1,0 +1,3 @@
+[submodule "plugins/jslider"]
+	path = plugins/jslider
+	url = git@github.com:hmelyoff/jslider.git
