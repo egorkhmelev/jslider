@@ -1,7 +1,7 @@
 
   body { padding-top: 30px; }
 
-  .slider-preview { padding: 1em 0; position: relative; background: #f1f1f1; text-align: center; }
+  .slider-preview { padding: 2em 0; position: relative; background: #f1f1f1; text-align: center; }
   .slider-preview .inline { display: inline; vertical-align: middle; }
   .slider-preview .slider { display: inline-block; width: 300px; padding: 0 5px; }
   .slider-preview select { position: relative; top: -1px; margin: 0 2px; width: auto; }
