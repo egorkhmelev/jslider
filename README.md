@@ -1,18 +1,9 @@
-Examples
+# jQuery Slider plugin
 
-  slider() — get slider object
+jQuery Slider is easy to use and multifunctional jQuery plugin.
 
-  slider('value') — return scope of values
-  slider('value', 100 ) — set first pointer to 1
-  slider('value', 100, 200 ) — set first pointer to 1, second pointer to 2
+[Checkout demos and documentations here](http://hmelyoff.github.com/jslider/ "test test")
 
-  slider('prc') — return scope of values in prc
-  slider('prc', 10 ) — set first pointer to 10%
-  slider('prc', 10, 90 ) — set first pointer to 10%, second pointer to 90%
+## License
 
-  slider('calculatedValue') — return value scope from "calculate" function
-
-  slider('skin', "plastic") — set skin to slider
-
-
-
+(MIT License) — Copyright &copy; 2012 Egor Khmelev
