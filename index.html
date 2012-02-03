@@ -14,14 +14,293 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <!-- CSS concatenated and minified via ant build script-->
+  <link rel="stylesheet" href="plugins/google-code-prettify/prettify.css" type="text/css" charset="utf-8">
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="plugins/jslider/stylesheets/jslider.css" type="text/css">
+	<link rel="stylesheet" href="plugins/jslider/stylesheets/jslider.blue.css" type="text/css">
+	<link rel="stylesheet" href="plugins/jslider/stylesheets/jslider.plastic.css" type="text/css">
+	<link rel="stylesheet" href="plugins/jslider/stylesheets/jslider.round.css" type="text/css">
+	<link rel="stylesheet" href="plugins/jslider/stylesheets/jslider.round.plastic.css" type="text/css">
   <!-- end CSS-->
+
+	<script type="text/javascript" src="plugins/jslider/javascripts/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="plugins/jslider/javascripts/jshashtable-2.1_src.js"></script>
+	<script type="text/javascript" src="plugins/jslider/javascripts/jquery.numberformatter-1.2.2.js"></script>
+	<script type="text/javascript" src="plugins/jslider/javascripts/tmpl.js"></script>
+	<script type="text/javascript" src="plugins/jslider/javascripts/jquery.dependClass-0.1.js"></script>
+	<script type="text/javascript" src="plugins/jslider/javascripts/draggable-0.1.js"></script>
+	<script type="text/javascript" src="plugins/jslider/javascripts/jquery.slider.js"></script>
+	<script type="text/javascript" src="plugins/google-code-prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
 
 </head>
 
 <body>
   <div class="container">
-    123
+
+    <div class="page-header">
+      <h1>jQuery Slider plugin <small><a href="http://github.com/hmelyoff/jslider">View project on GitHub</a></small></h1>
+    </div>
+    <p>jQuery Slider is easy to use and multifunctional jQuery plugin. Below you can find demos and documentation.</p>
+    <br/>
+    <div class="slider-preview">
+      <div class="inline">Slider placed in string</div>
+      <div class="inline">
+        <div class="slider"><input id="Slider6" type="slider" name="price" value="30000.5;60000" /></div>
+      </div>
+      <div class="inline">with</div>
+      <div class="inline">
+        <select name="skin" onchange="change_slider( this );">
+          <option value="classic">classic</option>
+          <option value="plastic" selected="selected">plastic</option>
+          <option value="round">round</option>
+          <option value="round_plastic">round_plastic</option>
+        </select>
+      </div>
+      <div class="inline">skin.</div>
+    </div>
+
+    <br/><br/>
+
+    <h2>Demos</h2>
+    <br/>
+    <div class="row">
+      <div class="span8">
+<pre class="prettyprint linenums">
+{
+  from: 5,
+  to: 50,
+  step: 2.5,
+  round: 1,
+  format: { format: '##.0', locale: 'de' },
+  dimension: '&amp;nbsp;€'
+}
+</pre>
+      </div>
+      <div class="span4">
+        <input id="SliderSingle" type="slider" name="price" value="20" />
+        <br/><br/>
+        <div class="alert alert-info">
+          <h4 class="alert-heading">Notice!</h4>
+          <p>New option <strong>format</strong>. Check docs and usage on <a href="http://code.google.com/p/jquery-numberformatter/">http://code.google.com/p/jquery-numberformatter/</a></p>
+        </div>
+      </div>
+      <script type="text/javascript" charset="utf-8">
+        jQuery("#SliderSingle").slider({ from: 5, to: 50, step: 2.5, round: 1, format: { format: '##.0', locale: 'de' }, dimension: '&nbsp;€', skin: "round" });
+      </script>
+    </div>
+
+    <br/>
+
+    <div class="row">
+      <div class="span8">
+<pre class="prettyprint linenums">
+{
+  from: 5000,
+  to: 150000,
+  heterogeneity: ['50/50000'],
+  step: 1000,
+  dimension: '&amp;nbsp;$'
+}
+</pre>
+      </div>
+      <div class="span4">
+        <input id="Slider2" type="slider" name="price" value="5000;50000" />
+      </div>
+      <script type="text/javascript" charset="utf-8">
+        jQuery("#Slider2").slider({ from: 5000, to: 150000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;$' });
+      </script>
+    </div>
+    
+    <br/>
+
+    <div class="row">
+      <div class="span8">
+<pre class="prettyprint linenums">
+{
+  from: 0,
+  to: 500,
+  heterogeneity: ['50/100', '75/250'],
+  scale: [0, '|', 50, '|' , '100', '|', 250, '|', 500],
+  limits: false,
+  step: 1,
+  dimension: '&amp;nbsp;m&lt;small&gt;2&lt;/small&gt;'
+}
+</pre>
+      </div>
+      <div class="span4">
+        <input id="Slider3" type="slider" name="area" value="25;75" />
+        <br/><br/>
+        <div class="alert alert-info">
+          <h4 class="alert-heading">Notice!</h4>
+          <p>That half of the slider here is just 1/5 of whole slider — this is what <strong>heterogeneity</strong> for.</p>
+        </div>
+      </div>
+      <script type="text/javascript" charset="utf-8">
+        jQuery("#Slider3").slider({ from: 0, to: 500, heterogeneity: ['50/100', '75/250'], scale: [0, '|', 50, '|', '100', '|', 250, '|', 500], limits: false, step: 1, dimension: '&nbsp;m<small>2</small>', skin: "round_plastic" });
+      </script>
+    </div>
+    
+    <br/>
+    
+    <div class="row">
+      <div class="span8">
+<pre class="prettyprint linenums">
+{
+  from: 1,
+  to: 30,
+  heterogeneity: ['50/5', '75/15'],
+  scale: [1, '|', 3, '|', '5', '|', 15, '|', 30],
+  limits: false,
+  step: 1,
+  dimension: '',
+  skin: "blue"
+}
+</pre>
+      </div>
+      <div class="span4">
+        <input id="Slider4" type="slider" name="area" value="2;10" />
+      </div>
+      <script type="text/javascript" charset="utf-8">
+        jQuery("#Slider4").slider({ from: 1, to: 30, heterogeneity: ['50/5', '75/15'], scale: [1, '|', 3, '|', '5', '|', 15, '|', 30], limits: false, step: 1, dimension: '', skin: "blue", callback: function( value ){ console.dir( this ); } });
+      </script>
+    </div>
+    
+    <br/>
+
+    <div class="row">
+      <div class="span8">
+<pre class="prettyprint linenums">
+{
+  from: 480,
+  to: 1020,
+  step: 15,
+  dimension: '',
+  scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+  limits: false,
+  calculate: function( value ){
+    var hours = Math.floor( value / 60 );
+    var mins = ( value - hours*60 );
+    return (hours &lt; 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
+  },
+  onstatechange: function( value ){
+    console.dir( this );
+  }
+}
+</pre>
+      </div>
+      <div class="span4">
+        <input id="Slider5" type="slider" name="area" value="600;720" />
+      </div>
+      <script type="text/javascript" charset="utf-8">
+
+        jQuery("#Slider5").slider({ from: 480, to: 1020, step: 15, dimension: '', scale: ['8:00', '9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'], limits: false, calculate: function( value ){
+          var hours = Math.floor( value / 60 );
+          var mins = ( value - hours*60 );
+          return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
+        }})
+
+      </script>
+    </div>
+    
+    <br/><br/>
+    
+    
+    <h2>Documentation</h2>
+    <br/>
+    
+    <div class="row">
+      <div class="span4">
+        <h3>Basic functions</h3>
+        <dl>
+          <dt><code>$(".selector").slider()</code></dt>
+          <dd>Get inner slider object</dd>
+          
+          <dt><code>$(".selector").slider("value")</code></dt>
+          <dd>Get values scope</dd>
+          
+          <dt><code>$(".selector").slider("value", p1, p2)</code></dt>
+          <dd>Set values to pointers p1 &amp; p2</dd>
+          
+          <dt><code>$(".selector").slider("prc")</code></dt>
+          <dd>Get percentage values scope</dd>
+          
+          <dt><code>$(".selector").slider("prc", p1, p2)</code></dt>
+          <dd>Set percentage values to pointers p1 &amp; p2</dd>
+          
+          <dt><code>$(".selector").slider("calculatedValue")</code></dt>
+          <dd>Get values scope from "calculate" function</dd>
+          
+          <dt><code>$(".selector").slider("skin", skin)</code></dt>
+          <dd>Set skin to slider</dd>
+        </dl>
+      </div>
+      <div class="span8">
+        <h3>Build options</h3>
+        
+        <div class="row">
+          <div class="span4">
+            <dl>
+              <dt>from <code>number</code></dt>
+              <dd>Left limit</dd>
+
+              <dt>to <code>number</code></dt>
+              <dd>Right limit</dd>
+
+              <dt>step <code>number</code></dt>
+              <dd>Step of pointer</dd>
+
+              <dt>round <code>number</code></dt>
+              <dd>How many numbers allowed after comma</dd>
+
+              <dt>format <code>object</code></dt>
+              <dd>How to format numbers, readme for <a href="http://code.google.com/p/jquery-numberformatter/">how to use</a></dd>
+
+              <dt>heterogeneity <code>array</code></dt>
+              <dd>[percentage of point on slider]/[value in that point]</dd>
+
+              <dt>dimension <code>string</code></dt>
+              <dd>Show this after number</dd>
+            </dl>
+          </div>
+          <div class="span4">
+            <dl>
+
+              <dt>limits <code>boolean</code></dt>
+              <dd>Show or not limits</dd>
+
+              <dt>scale <code>array</code></dt>
+              <dd>Labels under slider, '|' — show just line</dd>
+
+              <dt>skin <code>string</code></dt>
+              <dd>If you define new skin, just write here it name, in sources defined blue skin for example</dd>
+
+              <dt>calculate <code>function(value)</code></dt>
+              <dd>Function to calculate final numbers, for example time.</dd>
+
+              <dt>onstatechange <code>function(value)</code></dt>
+              <dd>Function fires while slider change state.</dd>
+
+              <dt>callback <code>function(value)</code></dt>
+              <dd>Function fires on "mouseup" event.</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br/>
+
+    <p><center><a class="btn btn-info btn-large" href="http://github.com/hmelyoff/jslider">View project on GitHub</a></center></h1>
+
+    <br/><br/>
+
+    <h2>License</h2>
+    <p>(MIT License) — Copyright © 2012 Egor Khmelev</p>
+    
+    <br/><br/>
   </div>
 </body>
 </html>
