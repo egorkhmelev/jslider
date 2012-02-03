@@ -2,7 +2,7 @@
 
 jQuery Slider is easy to use and multifunctional jQuery plugin.
 
-[Checkout demos and documentations here](http://hmelyoff.github.com/jslider/)
+[How to demos and documentations here](http://hmelyoff.github.com/jslider/)
 
 ## License
 
