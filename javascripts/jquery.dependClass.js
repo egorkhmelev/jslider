@@ -6,7 +6,6 @@
 
 
 (function($) {
-	// Init plugin function
 	$.baseClass = function(obj){
 	  obj = $(obj);
 	  return obj.get(0).className.match(/([^ ]+)/)[1];
@@ -48,5 +47,4 @@
 		});
 	};
 
-	// end of closure
 })(jQuery);

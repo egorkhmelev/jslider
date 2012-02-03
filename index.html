@@ -8,17 +8,14 @@
 	<link rel="stylesheet" href="./stylesheets/jslider.plastic.css" type="text/css">
 	<link rel="stylesheet" href="./stylesheets/jslider.round.css" type="text/css">
 	<link rel="stylesheet" href="./stylesheets/jslider.round.plastic.css" type="text/css">
-	<!--[if IE 6]>
-    <link rel="stylesheet" href="./stylesheets/jslider.ie6.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="./stylesheets/jslider.blue.ie6.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="./stylesheets/jslider.plastic.ie6.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="./stylesheets/jslider.round.ie6.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="./stylesheets/jslider.round.plastic.ie6.css" type="text/css" media="screen">
-	<![endif]-->
 
-	<script type="text/javascript" src="./javascripts/jquery-1.4.2.js"></script>
+	<script type="text/javascript" src="./javascripts/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="./javascripts/jshashtable-2.1_src.js"></script>
+	<script type="text/javascript" src="./javascripts/jquery.numberformatter-1.2.2.js"></script>
+	<script type="text/javascript" src="./javascripts/tmpl.js"></script>
 	<script type="text/javascript" src="./javascripts/jquery.dependClass.js"></script>
-	<script type="text/javascript" src="./javascripts/jquery.slider-min.js"></script>
+	<script type="text/javascript" src="./javascripts/draggable.js"></script>
+	<script type="text/javascript" src="./javascripts/jquery.slider.js"></script>
 	
 	<style type="text/css" media="screen">
 	  body { background: #EEF0F7; }
@@ -46,6 +43,7 @@
   to: 50,
   step: 2.5,
   round: 1,
+  format: { format: '##.0', locale: 'de' },
   dimension: '&amp;nbsp;€'
 }</pre>
     </div>
@@ -53,7 +51,7 @@
       <input id="SliderSingle" type="slider" name="price" value="20" />
     </div>
     <script type="text/javascript" charset="utf-8">
-      jQuery("#SliderSingle").slider({ from: 5, to: 50, step: 2.5, round: 1, dimension: '&nbsp;€', skin: "round" });
+      jQuery("#SliderSingle").slider({ from: 5, to: 50, step: 2.5, round: 1, format: { format: '##.0', locale: 'de' }, dimension: '&nbsp;€', skin: "round" });
     </script>
 
     <div class="layout-slider-settings">
