@@ -8,7 +8,7 @@ css_compiler: js_compiler
 js_compiler:
 	mkdir -p bin
 	rm -f bin/jquery.slider.all.js bin/jquery.slider.min.js
-	cat js/jshashtable-2.1_src.js js/jquery.numberformatter-1.2.2.js js/tmpl.js js/jquery.dependClass-0.1.js js/draggable-0.1.js js/jquery.slider.js > bin/jquery.slider.all.js
+	cat js/jshashtable-2.1_src.js js/jquery.numberformatter-1.2.3.js js/tmpl.js js/jquery.dependClass-0.1.js js/draggable-0.1.js js/jquery.slider.js > bin/jquery.slider.all.js
 	uglifyjs -nc bin/jquery.slider.all.js > bin/jquery.slider.min.js
 	rm -f bin/jquery.slider.all.js
 

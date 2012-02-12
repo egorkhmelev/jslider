@@ -9,7 +9,7 @@
  * and GPL (GPL-LICENSE.txt) licenses.
  *
  * @author Michael Abernethy, Andrew Parry
- * @version 1.2.2-RELEASE ($Id$)
+ * @version 1.2.3-SNAPSHOT ($Id$)
  * 
  * Dependencies
  * 
@@ -127,7 +127,7 @@
 		}
 	};
 
-	function formatCodes(locale) {
+	function formatCodes(locale, isFullLocale) {
 		if (nfLocales.size() == 0)
 			init();
 
@@ -135,7 +135,16 @@
          var dec = ".";
          var group = ",";
          var neg = "-";
-		 
+         
+         if (isFullLocale == false) {
+	         // Extract and convert to lower-case any language code from a real 'locale' formatted string, if not use as-is
+	         // (To prevent locale format like : "fr_FR", "en_US", "de_DE", "fr_FR", "en-US", "de-DE")
+	         if (locale.indexOf('_') != -1)
+				locale = locale.split('_')[1].toLowerCase();
+			 else if (locale.indexOf('-') != -1)
+				locale = locale.split('-')[1].toLowerCase();
+		}
+
 		 // hashtable lookup to match locale with codes
 		 var codesIndex = nfLocales.get(locale);
 		 if (codesIndex) {
@@ -201,7 +210,7 @@
 	 */
 	jQuery.formatNumber = function(numberString, options){
 		var options = jQuery.extend({}, jQuery.fn.formatNumber.defaults, options);
-		var formatData = formatCodes(options.locale.toLowerCase());
+		var formatData = formatCodes(options.locale.toLowerCase(), options.isFullLocale);
 		
 		var dec = formatData.dec;
 		var group = formatData.group;
@@ -254,7 +263,7 @@
 	 */
 	jQuery._formatNumber = function(number, options, suffix, prefix, negativeInFront) {
 		var options = jQuery.extend({}, jQuery.fn.formatNumber.defaults, options);
-		var formatData = formatCodes(options.locale.toLowerCase());
+		var formatData = formatCodes(options.locale.toLowerCase(), options.isFullLocale);
 		
 		var dec = formatData.dec;
 		var group = formatData.group;
@@ -336,15 +345,21 @@
 				}
 			}
 			
-			// account for any pre-data 0's
+			// account for any pre-data padding
 			if (onesFormat.length > onePortion.length) {
 				var padStart = onesFormat.indexOf('0');
 				if (padStart != -1) {
 					var padLen = onesFormat.length - padStart;
 					
-					// pad to left with 0's
+					// pad to left with 0's or group char
+					var pos = onesFormat.length - onePortion.length - 1;
 					while (onePortion.length < padLen) {
-						onePortion = '0' + onePortion;
+						var padChar = onesFormat.charAt(pos);
+						// replace with real group char if needed
+						if (padChar == ',')
+							padChar = group;
+						onePortion = padChar + onePortion;
+						pos--;
 					}
 				}
 			}
@@ -415,7 +430,7 @@
 	 */
 	jQuery.parseNumber = function(numberString, options) {
 		var options = jQuery.extend({}, jQuery.fn.parseNumber.defaults, options);
-		var formatData = formatCodes(options.locale.toLowerCase());
+		var formatData = formatCodes(options.locale.toLowerCase(), options.isFullLocale);
 
 		var dec = formatData.dec;
 		var group = formatData.group;
@@ -429,7 +444,7 @@
 		numberString = numberString.replace(dec,".").replace(neg,"-");
 		var validText = "";
 		var hasPercent = false;
-		if (numberString.charAt(numberString.length-1)=="%")
+		if (numberString.charAt(numberString.length - 1) == "%" || options.isPercentage == true)
 			hasPercent = true;
 		for (var i=0; i<numberString.length; i++) {
 			if (valid.indexOf(numberString.charAt(i))>-1)
@@ -438,7 +453,13 @@
 		var number = new Number(validText);
 		if (hasPercent) {
 			number = number / 100;
-			number = number.toFixed(validText.length-1);
+			var decimalPos = validText.indexOf('.');
+			if (decimalPos != -1) {
+				var decimalPoints = validText.length - decimalPos - 1;
+				number = number.toFixed(decimalPoints + 2);
+			} else {
+				number = number.toFixed(validText.length - 1);
+			}
 		}
 
 		return number;
@@ -446,7 +467,9 @@
 
 	jQuery.fn.parseNumber.defaults = {
 		locale: "us",
-		decimalSeparatorAlwaysShown: false
+		decimalSeparatorAlwaysShown: false,
+		isPercentage: false,
+		isFullLocale: false
 	};
 
 	jQuery.fn.formatNumber.defaults = {
@@ -454,11 +477,12 @@
 		locale: "us",
 		decimalSeparatorAlwaysShown: false,
 		nanForceZero: true,
-		round: true
+		round: true,
+		isFullLocale: false
 	};
 	
 	Number.prototype.toFixed = function(precision) {
-    	return $._roundNumber(this, precision);
+    	return jQuery._roundNumber(this, precision);
 	};
 	
 	jQuery._roundNumber = function(number, decimalPlaces) {

@@ -158,7 +158,7 @@
       smooth: true,
       limits: true,
       round: 0,
-      format: { format: "#,###.##" },
+      format: { format: "#,##0.##" },
       value: "5;7",
       dimension: ""
     },
