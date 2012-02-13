@@ -138,7 +138,7 @@
 		    if( !isArray( returnValue ) )
 		      returnValue = [];
 
-		    returnValue.push( slider );
+		    returnValue.push( self );
 		  }
 		});
 		
@@ -358,6 +358,11 @@
     $.each(this.o.pointers, function(i){
       self.redraw(this);
     });
+  };
+  
+  jSlider.prototype.update = function(){
+    this.onresize();
+    this.drawScale();
   };
   
   jSlider.prototype.limits = function( x, pointer ){
