@@ -1,4 +1,5 @@
 
+  html, body { -webkit-text-size-adjust: none; }
   body { padding-top: 30px; }
 
   .slider-preview { padding: 1.5em 0; position: relative; background: #f1f1f1; text-align: center; line-height: 34px; }
@@ -14,6 +15,7 @@
   @media (max-width:480px){
     .sources .btn { display: block; margin: 0 auto 10px; }
     .page-header h1 small { margin-top: 0.6em; }
+    .slider-preview .slider { width: 250px; }
   }
   
   @media (max-width:767px){
