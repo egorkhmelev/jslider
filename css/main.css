@@ -1,9 +1,21 @@
 
   body { padding-top: 30px; }
 
-  .slider-preview { padding: 2em 0; position: relative; background: #f1f1f1; text-align: center; }
+  .slider-preview { padding: 1.5em 0; position: relative; background: #f1f1f1; text-align: center; line-height: 34px; }
   .slider-preview .inline { display: inline; vertical-align: middle; }
   .slider-preview .slider { display: inline-block; width: 300px; padding: 0 5px; }
   .slider-preview select { position: relative; top: -1px; margin: 0 2px; width: auto; }
   
   dl dd { margin-bottom: 1em; padding-top: 0.3em; }
+  dl dt { white-space: pre-wrap; width: 100%; position: relative; }
+  
+  .sources .btn { width: 180px; }
+
+  @media (max-width:480px){
+    .sources .btn { display: block; margin: 0 auto 10px; }
+    .page-header h1 small { margin-top: 0.6em; }
+  }
+  
+  @media (max-width:767px){
+    .sources { text-align: center; }
+  }
