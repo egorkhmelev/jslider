@@ -86,7 +86,7 @@
 	Draggable.prototype._events = function(){
 		var self = this;
 
-    this.supportTouches_ = ( $.browser.webkit && navigator.userAgent.indexOf("Mobile") != -1 );
+    this.supportTouches_ = 'ontouchend' in document;
     this.events_ = {
       "click": this.supportTouches_ ? "touchstart" : "click",
       "down": this.supportTouches_ ? "touchstart" : "mousedown",
