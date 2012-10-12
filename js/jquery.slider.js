@@ -170,7 +170,7 @@
       '<span class="<%=className%>">' +
         '<table><tr><td>' +
           '<div class="<%=className%>-bg">' +
-            '<i class="l"></i><i class="r"></i>' +
+            '<i class="l"></i><i class="f"></i><i class="r"></i>' +
             '<i class="v"></i>' +
           '</div>' +
 
