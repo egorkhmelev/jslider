@@ -1,4 +1,4 @@
-# jQuery Slider plugin ()
+# jQuery Slider plugin
 
 jQuery Slider is easy to use and multifunctional jQuery plugin.
 
@@ -6,7 +6,7 @@ jQuery Slider is easy to use and multifunctional jQuery plugin.
 
 ## Bugs / Pull requests
 
-This project is not maintained anymore. You are free to fork it and start a new project.
+THIS PROJECT IS NOT MAINTAINED ANYMORE. You are free to fork it and start a new project.
 I will add the best forks here.
 
 ## License
