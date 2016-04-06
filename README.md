@@ -7,7 +7,7 @@ jQuery Slider is easy to use and multifunctional jQuery plugin.
 ## Bugs / Pull requests
 
 THIS PROJECT IS NOT MAINTAINED ANYMORE. You are free to fork it and start a new project.
-I will add the best forks here.
+Best fork: https://github.com/abdavid/jslider
 
 ## License
 
